@@ -52,6 +52,7 @@
         </div>
         <button class="btn-masuk" id="userlogin" type="submit">Masuk</button>
     </div>
+    <div>test</div>
     @endauth
     <script>
         $('#userlogin').click(function(){
