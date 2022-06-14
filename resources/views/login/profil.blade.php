@@ -142,10 +142,12 @@
                         $('#list-riwayat-order').html('')
                         datacontentriwayat(data[$(this).attr('id')]);
                     })
+                    
                 }
 
             });
             function datacontentriwayat(data){
+                let totalharga;
                 for(i = 0; i < data.length; i++){
                 $('#list-riwayat-order').append(`
                 <div class="box-riwayat-item">
@@ -157,8 +159,11 @@
                         <li class="item-harga">Rp. `+ data[i].harga +`</li>
                     </ul>
                 </div>
-                `);   
-                }
+                `);
+                totalharga = totalharga + data[i].harga;
+            }
+            console.log(totalharga);
+            $('.total-harga').html('Rp. '+ totalharga)
                     
             }
         }
