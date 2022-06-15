@@ -42,7 +42,10 @@
         <div class="list-riwayat-order" id="list-riwayat-order">
         </div>
     </div>
-    <div class="total-harga">Rp.xxx</div>
+    <div class="total-harga">
+        <span class="sistem-pembayaran">Pembayaran: Cash</span>
+        <div class="total-pembayaran">Total : <span class="total-harga2">Rp. 12.000</span></div>
+    </div>
     
     @else
     <div class="container">
@@ -75,6 +78,8 @@
         })
         let data2 = [];
         function getdata(status){
+            $('.total-harga').css('display', 'none')
+
             $('#riwayat-status-header').html(status+`
                     <div class="dropdown-order" id="dropdown-order">
                         <span class="dropdown-selected" id=""><span id="selected-dropdown">Pesanan 1</span> <img id="dropdown-icon" class="dropdown-icon-1" src="asset/img/icons8-chevron-24.png" width="10px" height="10px" alt=""></span>
@@ -123,6 +128,8 @@
                     'status': status
                 },
                 success: (data) => {
+                    $('.total-harga').css('display', 'flex')
+                    $('.total-harga2').html('')
                     $('#dropdown-order').html(`<span class="dropdown-selected" id="dropdown-selected"><span id="selected-dropdown">Pesanan 1</span> <img id="dropdown-icon" class="dropdown-icon-1" src="asset/img/icons8-chevron-24.png" width="10px" height="10px" alt=""></span>`)
                     $('#list-riwayat-order').html(``)
                     for(let i = 0; i < data.length; i++){
@@ -147,25 +154,24 @@
 
             });
             function datacontentriwayat(data){
-                let totalharga;
+                let totalharga = 0;
                 for(i = 0; i < data.length; i++){
-                $('#list-riwayat-order').append(`
-                <div class="box-riwayat-item">
-                    <img src="`+ data[i].gambar +`" width="100" height="100" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;" alt="">
-                    <ul class="item-desc">
-                        <li class="item-name">`+ data[i].nama +`</li>
-                        <li style="opacity: 67%;font-family: Open Sans;font-size: 13px;">`+ data[i].kategori +`</li>
-                        <li class="item-jumlah">`+ data[i].jumlah +`x</li>
-                        <li class="item-harga">Rp. `+ data[i].harga +`</li>
-                    </ul>
-                </div>
-                `);
-                totalharga = totalharga + data[i].harga;
-            }
-            console.log(totalharga);
-            $('.total-harga').html('Rp. '+ totalharga)
-                    
+                    $('#list-riwayat-order').append(`
+                    <div class="box-riwayat-item">
+                        <img src="`+ data[i].gambar +`" width="100" height="100" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;" alt="">
+                        <ul class="item-desc">
+                            <li class="item-name">`+ data[i].nama +`</li>
+                            <li style="opacity: 67%;font-family: Open Sans;font-size: 13px;">`+ data[i].kategori +`</li>
+                            <li class="item-jumlah">`+ data[i].jumlah +`x</li>
+                            <li class="item-harga">Rp. `+ data[i].harga +`</li>
+                        </ul>
+                    </div>
+                    `);
+                    totalharga += data[i].harga;
+                }
+                $('.total-harga2').html('Rp. '+ totalharga)      
             }
         }
+            
     </script>
 @endsection
