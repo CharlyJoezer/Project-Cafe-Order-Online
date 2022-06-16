@@ -143,7 +143,6 @@
                     'kategori': 'minuman'
                 },
                 success: function(data){
-                    console.log(data);
                     $('.list-menu').html('')
                     if(data.length == 0){
                     $('.list-menu').html('<h4 class="kategori-null">Kategori belum tersedia</h4>');
@@ -245,10 +244,9 @@
                         </div>
                     `)
                     }
-                    orderbox()
+                    orderbox();
                 }
             })
-            orderbox();
         });
         $('#lainnya').click(function(){
             $('.list-menu').html(`
@@ -366,7 +364,6 @@
         }
         
         $('#tambahorderan').click(function(){
-            console.log();
             sendData(
                 $('#box-menu-item').children([0]).attr('id'),
                 $('#jumlahangka').val(),

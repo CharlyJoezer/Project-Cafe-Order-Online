@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keranjang;
 use Exception;
+use App\Models\Menu;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,15 +28,16 @@ class PesananController extends Controller
             $checkAlready = Keranjang::where('user_id', auth()->user()->id)->where('menu_id', $request->menu);
             if($checkAlready->first('id')){
                 $checkAlready->update(['jumlah_dipesan' => $checkAlready->value('jumlah_dipesan') + $request->jumlah]);
-                $checkAlready->update(['total_harga' => $checkAlready->value('total_harga') + $request->total]);
+                $checkAlready->update(['total_harga' => Menu::where('id', $request->menu)->value('harga') * $checkAlready->value('jumlah_dipesan')]);
                 return 'ok';
             }
+            $queryfinaldata = Menu::where('id', $request->menu);
             $finaldata = [
                 'user_id' => auth()->user()->id,
-                'menu_id' => $request->menu,
-                'nama_menu' => $request->nama,
+                'menu_id' => $queryfinaldata->value('id'),
+                'nama_menu' => $queryfinaldata->value('nama'),
                 'jumlah_dipesan' => $request->jumlah,
-                'total_harga' => $request->total
+                'total_harga' => Menu::where('id', $request->menu)->value('harga')*$request->jumlah
             ];
             Keranjang::create($finaldata);
     
