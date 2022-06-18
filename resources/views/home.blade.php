@@ -70,7 +70,7 @@
         </div>
 
     </div>
-
+    <div class="div"></div>
     <script>
         const minuman = document.getElementById('minuman')
         const makanan = document.getElementById('makanan')
