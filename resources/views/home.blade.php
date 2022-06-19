@@ -68,7 +68,6 @@
                 <p style="margin:0px;padding:0px;">Pesanan ditambah ke list orderan </p>
             </div>
         </div>
-        <div class="class"></div>
     </div>
     <script>
         const minuman = document.getElementById('minuman')
