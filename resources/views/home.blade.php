@@ -70,6 +70,8 @@
         </div>
     </div>
     <script>
+        console.log('okdone')
+        console.log('mantap')
         const minuman = document.getElementById('minuman')
         const makanan = document.getElementById('makanan')
         const lainnya = document.getElementById('lainnya')
