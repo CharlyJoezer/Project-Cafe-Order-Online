@@ -82,25 +82,7 @@ class RiwayatController extends Controller
             }
             $finaldata2 = $this->inputjumlah($finaldata, $jumlahpesanan);
             return $finaldata2;
-            // $listmenu = $datapesanan->list_pesanan;
-            // $jumlahmenu = $datapesanan->jumlah_pesanan;
-            // foreach($listmenu as $menuid){
-            //     $data = Menu::where('id', $menuid)->first();
-            //     array_push($finaldata,  [
-            //         'nama' => $data->nama,
-            //         'kategori' => $data->kategori,
-            //         'harga'    => $data->harga,
-            //         'gambar'   => $data->gambar
-            //     ]);
-            // }
-            // $indexdata = [];
-            // for($i = 0; $i < count($listmenu); $i++){
-            //     // array_push($finaldata[$i], $fin['jumlah' => $jumlahmenu[$i]]);
-            //     $finaldata[$i]['jumlah'] = $jumlahmenu[$i];
-            //     $finaldata[$i]['harga'] *= $finaldata[$i]['jumlah'];
-            // }
-            // return $finaldata;
-            
+
         }catch(Exception){
             return ['status' => '500'];
         }
