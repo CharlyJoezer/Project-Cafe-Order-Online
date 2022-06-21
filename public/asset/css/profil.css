@@ -95,6 +95,7 @@ body {
     box-sizing: border-box;
     overflow-y: auto;
     position: relative;
+    display: none;
 }
 .box-riwayat-order::-webkit-scrollbar{
     display: none;
@@ -103,7 +104,7 @@ body {
     padding: 5px;
     width: 95%;
     margin: 0 auto;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     font-family: Roboto;
@@ -189,7 +190,7 @@ body {
     padding: 5px;
     font-family: Roboto;
     font-size: 13px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
 }
@@ -281,4 +282,12 @@ body {
     list-style-type: none;
     margin: 0px;
     padding: 5px;
+}
+.center-image-background {
+    display: flex;
+    justify-content: center;
+}
+.center-image{
+    width: 200px;
+    height: 200px;
 }

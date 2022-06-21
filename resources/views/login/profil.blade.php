@@ -29,20 +29,16 @@
         </div>
     </div>
 
-    <div class="riwayat-status-header" id="riwayat-status-header">Diproses
-        {{-- <div class="dropdown-order" id="dropdown-order">
-            <span class="dropdown-selected" id="dropdown-selected"><span id="selected-dropdown">Pesanan 1</span> <img id="dropdown-icon" class="dropdown-icon-1" src="asset\img\icons8-chevron-24.png" width="10px" height="10px" alt=""></span>
-            <span class="dropdown-list">Pesanan 1</span>
-                <span class="dropdown-list">Pesanan 2</span>
-                <span class="dropdown-list">Pesanan 3</span>
-        </div> --}}
+    <div class="center-image-background" id="center-image-background">
+        <img class="center-image" src="asset\img\LOGO_PROJET_CAFE_ORDER.png" alt="COFFE LATTE">
     </div>
 
-    <div class="box-riwayat-order">
+    <div class="riwayat-status-header" id="riwayat-status-header">Diproses</div>
+    <div class="box-riwayat-order" id="box-riwayat-order">
         <div class="list-riwayat-order" id="list-riwayat-order">
         </div>
     </div>
-    <div class="total-harga">
+    <div class="total-harga" id="total-harga">
         <span class="sistem-pembayaran">Pembayaran: Cash</span>
         <div class="total-pembayaran">Total : <span class="total-harga2">Rp. 12.000</span></div>
     </div>
@@ -78,7 +74,10 @@
         })
         let data2 = [];
         function getdata(status){
-            $('.total-harga').css('display', 'none')
+            $('#center-image-background').css('display', 'none')
+            $('#riwayat-status-header').css('display','flex')
+            $('#box-riwayat-order').css('display','block')
+            $('#total-harga').css('display','flex')
 
             $('#riwayat-status-header').html(status+`
                     <div class="dropdown-order" id="dropdown-order">
